@@ -7,7 +7,13 @@ Select top 1 * from Sales.SalesOrderHeader;
 Select SalesOrderID, Max(TotalDue)
 From Sales.SalesOrderHeader;
 
-Select SalesOrderID, Max(TotalDue) as AboluteMax
+--to jest query do szukania max wartosci
+Select SalesOrderID, Max(TotalDue) as AbsoluteMax
 From Sales.SalesOrderHeader
 Group By SalesOrderId
 Order by Max(TotalDue) DESC;
+
+--Robimy subqueries i umieszczamy w klauzuli where
+--Otrzymujemy najwieksza wartosc kolumny TotalDue i jej id
+Select SalesOrderID, TotalDue from Sales.SalesOrderHeader
+Where TotalDue = (Select  Max(TotalDue) From Sales.SalesOrderHeader);
