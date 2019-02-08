@@ -17,4 +17,5 @@ Insert INTO @mtl
 		ON p.BusinessEntityID = soh.SalesPersonID
 		Group by FirstName , LastName;
 
-select * from @mtl;
+select * from @mtl 
+Order by Orders DESC;
