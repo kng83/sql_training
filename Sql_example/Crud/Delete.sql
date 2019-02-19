@@ -22,8 +22,8 @@ Delete from DeleteExample
 Where LastName = 'Abercrombie' AND FirstName ='Kim';
 
 
-
 --usuwamy adams ale najpierw zobmy select
 --Select LastName,FirstName
 Delete from DeleteExample
+Output deleted.*
 Where LastName = 'Adams' AND FirstName ='Ben';
