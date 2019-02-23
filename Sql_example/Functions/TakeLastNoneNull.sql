@@ -22,7 +22,8 @@ Begin
 	 End
 	 ELSE
 	 Begin
-		SET @ret = @LastNonNull;
+		
+		select @ret = @@ROWCOUNT
 		RETURN @ret;  
 	 End
     RETURN @ret;  
