@@ -7,12 +7,12 @@ IF OBJECT_ID (N'dbo.TakeFirstNonNull') IS NOT NULL
    DROP FUNCTION [dbo].[TakeFirstNonNull]
 GO
 
-CREATE FUNCTION TakeFirstNonNull(@Cell varchar(50), @LastNonNull varchar(50))
-RETURNS varchar(50) as
+CREATE FUNCTION TakeFirstNonNull(@Cell varchar(50), @LastNonNull varchar(50) ='0')
+RETURNS varchar(50) 
+AS
 Begin
     
 	DECLARE @ret varchar(50); 
-	DEClare @LastNonNul varchar(50); 
 	 Set @ret = @Cell
      IF (@ret IS Not NULL)   
 	 Begin
@@ -23,7 +23,7 @@ Begin
 	 ELSE
 	 Begin
 		
-		select @ret = @@ROWCOUNT
+		Select  @ret =  Count(*) 
 		RETURN @ret;  
 	 End
     RETURN @ret;  
