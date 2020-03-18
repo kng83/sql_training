@@ -1,0 +1,10 @@
+
+
+with cte as (
+select
+	json_build_object( 'message', (t.message), 'id', (t.id) ) as one
+	--(t.message ,t.id )
+from
+	ticket as t
+)
+select json_build_object('query_results',json_agg(cte)) from cte;
